@@ -25,18 +25,18 @@ export const TIPOS_FUNCIONES = [
     },
     {
         id: 3,
-        tipo: "Fichero lógico interno",
-        descripcion: "Archivos del punto de vista lógico / tablas en la base de datos.",
-        baja: 7,
-        media: 10,
-        alta: 15,
-    },
-    {
-        id: 4,
         tipo: "Fichero de interfaz externa",
         descripcion: "Datos referenciados y relacionados a otros sistemas / Datos mantenidos por otros sistemas, pero usados por el sistema actual.",
         baja: 5,
         media: 7,
         alta: 10,
     },
+    // {
+    //     id: 4,
+    //     tipo: "Fichero lógico interno",
+    //     descripcion: "Archivos del punto de vista lógico / tablas en la base de datos.",
+    //     baja: 7,
+    //     media: 10,
+    //     alta: 15,
+    // },
 ]
