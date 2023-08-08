@@ -1,16 +1,17 @@
 import "./App.css";
-import { ILF } from "./components/ILF";
-import { InsertILF } from "./components/InsertILF";
-import { ValuesTables } from "./components/ValuesTables";
+import { Home } from "./components/Home";
 import { Route, Routes } from "react-router-dom";
+import { NavBar } from "./components/NavBar";
 
 function App() {
   return (
     <>
-      <Routes>
-        <Route path="/" element={<ValuesTables />} />
-        <Route path="/ilf/add" element={<InsertILF />} />
-      </Routes>
+      <div className="bg-background-fill px-[15%]">
+        <NavBar />
+        <Routes>
+          <Route path="/" element={<Home />} />
+        </Routes>
+      </div>
     </>
   );
 }

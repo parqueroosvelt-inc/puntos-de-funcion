@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { TIPOS_FUNCIONES } from "../constants/puntos_funcion";
-import { ILF } from "./ILF";
+import { ILF_SECTION } from "./ILF";
 
 export const ValuesTables = () => {
   const [totalPoints, setTotalPoints] = useState();
@@ -10,8 +10,8 @@ export const ValuesTables = () => {
       {TIPOS_FUNCIONES.slice(0, 5).map((item) => {
         return <FP_ROW fp={item} key={item.id} />;
       })}
-      <ILF />
-      <button>See the results!</button>
+      <ILF_SECTION />
+      <button className="bg-accent font-semibold">See the results!</button>
       <p>{totalPoints}</p>
     </section>
   );
@@ -28,22 +28,34 @@ const FP_ROW = ({ fp }) => {
   };
 
   return (
-    <article className="flex flex-col gap-2 items-start justify-between bg-purple-900 rounded-md py-4 px-5">
+    <article className="flex flex-col gap-2 items-start justify-between bg-secondary rounded-md py-4 px-5 text-baseColor">
       <h2 className="text-xl font-semibold">{tipo}</h2>
-      <p>{descripcion}</p>
+      <p className="text-left my-1">{descripcion}</p>
       <p>{ammount}</p>
       <section className="flex gap-4 items-center">
-        <button onClick={() => setAmmount(ammount - 1)}>-</button>
-        <button onClick={() => setAmmount(ammount + 1)}>+</button>
-      </section>
-      <section className="flex justify-center">
-        <select onChange={handleChange} className="w-full">
-          <option value={baja}>Baja</option>
-          <option selected value={media}>
-            Media
-          </option>
-          <option value={alta}>Alta</option>
-        </select>
+        <button
+          className="bg-secondary text-customText font-extrabold"
+          onClick={() => setAmmount(ammount - 1)}
+        >
+          -
+        </button>
+        <button
+          className="bg-secondary text-customText font-extrabold"
+          onClick={() => setAmmount(ammount + 1)}
+        >
+          +
+        </button>
+        <section className="flex justify-center items-center">
+          <select
+            onChange={handleChange}
+            className="w-full bg-secondary text-customText px-4 py-3 rounded-lg"
+            defaultValue={media}
+          >
+            <option value={baja}>Baja</option>
+            <option value={media}>Media</option>
+            <option value={alta}>Alta</option>
+          </select>
+        </section>
       </section>
     </article>
   );
