@@ -1,0 +1,9 @@
+.container-principal {
+    padding: 0 15%;
+}
+
+@media (max-width: 1400px) {
+    .container-principal {
+        padding: 0 5%;
+    }
+}
