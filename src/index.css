@@ -62,15 +62,22 @@ button {
     --color-secondary: #141412;
     --color-background-fill: #040301;
     --color-text-base: #ffffff;
-    --color-accent: #7cb5ee,
+    --color-accent: #7cb5ee;
+    --color-contrast: #ffffff;
   }
   .light-mode {
     --color-primary: #ed9e50;
-    --color-secondary: #e1e1dd;
+    /* --color-secondary: #e1e1dd; */
+    --color-secondary: #f1f1f1;
     --color-background-fill: #ffffff;
     --color-text-base: #040301;
-    --color-accent: #1869b9,
+    --color-accent: #1869b9;
+    --color-contrast: #040301;
   }
+}
+
+::selection {
+  background: var(--color-primary);
 }
 
 /* @media (prefers-color-scheme: light) {
