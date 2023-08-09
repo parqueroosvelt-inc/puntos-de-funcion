@@ -3,24 +3,20 @@ import { THEME_MODES } from "../constants/theme-modes";
 
 export const useTheme = () => {
   // Initialize theme from localStorage, or default to 'light'
-  const initialTheme = localStorage.getItem("theme") || "dark-mode";
+  const initialTheme = localStorage.getItem("theme") || THEME_MODES.dark;
   const [theme, setTheme] = useState(initialTheme);
 
-  // Function to toggle between light and dark themes
   const toggleTheme = () => {
-    const newTheme = theme === "light-mode" ? "dark-mode" : "light-mode";
+    const newTheme =
+      theme === THEME_MODES.light ? THEME_MODES.dark : THEME_MODES.light;
     setTheme(newTheme);
     localStorage.setItem("theme", newTheme);
-    // Save theme to localStorage
     document.getElementById("theme_container").className = newTheme;
-    // document.body.classList.toggle("dark-theme"); // Toggle CSS class
   };
 
-  // Apply theme class on initial render
   useEffect(() => {
-    document.getElementById("theme_container").className = THEME_MODES.light;
-    // document.body.classList.toggle("dark-theme", theme === "dark");
+    document.getElementById("theme_container").className = theme;
   }, [theme]);
 
-  return { theme, toggleTheme };
+  return [theme, toggleTheme];
 };
