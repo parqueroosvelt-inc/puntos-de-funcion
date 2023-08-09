@@ -6,7 +6,7 @@ import { NavBar } from "./components/NavBar";
 function App() {
   return (
     <>
-      <div className="bg-background-fill px-[15%]">
+      <div className="bg-background-fill transition-all duration-700 px-[15%]">
         <NavBar />
         <Routes>
           <Route path="/" element={<Home />} />
