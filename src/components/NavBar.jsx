@@ -32,13 +32,18 @@ export const NavBar = () => {
         <li className="flex items-center justify-center">
           <Around toggle={setTheme} toggled={actualTheme} duration={450} />
         </li>
-        {NAVBAR_SECTIONS.map((item) => {
-          return (
-            <li className="transition-all hover:opacity-60" key={item.id}>
-              <a href={item.route}>{item.title}</a>
-            </li>
-          );
-        })}
+        <div className="flex items-center gap-6">
+          {NAVBAR_SECTIONS.map((item) => {
+            return (
+              <li className="transition-all hover:opacity-60" key={item.id}>
+                <a href={item.route}>{item.title}</a>
+              </li>
+            );
+          })}
+          <li className="transition-all hover:opacity-60 px-4 boton-principal text-black rounded-lg bg-primary">
+            <a href="/start">Calcular</a>
+          </li>
+        </div>
       </ul>
     </nav>
   );
