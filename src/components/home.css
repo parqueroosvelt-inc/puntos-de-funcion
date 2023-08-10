@@ -50,7 +50,7 @@
     }
 }
 
-@media (max-width: 1400px) {
+@media (max-width: 950px) {
     .main_reasons_container {
         flex-direction: column;
     }
