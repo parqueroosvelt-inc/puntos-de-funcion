@@ -8,7 +8,7 @@ export const Footer = () => {
         <article className="flex gap-3 flex-col">
           <a
             href="/"
-            className="tracking-tighter flex items-center gap-2 font-bold text-baseColor"
+            className="tracking-tighter flex items-center gap-2 font-bold text-baseColor transition-all duration-400 hover:text-primary"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -20,7 +20,7 @@ export const Footer = () => {
               strokeLinejoin="round"
               strokeWidth={1.5}
               id="main_icon-code-dots"
-              className="icon icon-tabler icon-tabler-code-dots transition-all duration-700"
+              className="icon icon-tabler icon-tabler-code-dots"
               viewBox="0 0 24 24"
             >
               <path stroke="none" d="M0 0h24v24H0z" />
@@ -55,7 +55,7 @@ export const Footer = () => {
 
 const Contacto = ({ title, link }) => {
   return (
-    <li className="py-2 hover:underline">
+    <li className="py-2 hover:underline decoration-2 decoration-primary">
       <a
         target="_blank"
         href={link}
