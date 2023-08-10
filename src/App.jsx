@@ -2,6 +2,7 @@ import "./App.css";
 import { Home } from "./components/Home";
 import { Route, Routes } from "react-router-dom";
 import { NavBar } from "./components/NavBar";
+import { CalculatePoints } from "./components/CalculatePoints";
 
 function App() {
   return (
@@ -10,6 +11,7 @@ function App() {
         <NavBar />
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/start" element={<CalculatePoints />} />
         </Routes>
       </div>
     </>
