@@ -52,6 +52,10 @@ export const Home = () => {
           })}
         </div>
       </section>
+      <section className="text-baseColor mt-16 flex flex-col gap-4">
+        <h2 className="text-xl font-semibold">Preguntas Frecuentes</h2>
+        <p>Aquí las respuestas a algunas de las preguntas que puedas tener.</p>
+      </section>
       <Footer />
       {/* <ValuesTables /> */}
     </>
