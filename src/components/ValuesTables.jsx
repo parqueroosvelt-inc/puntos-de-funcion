@@ -1,99 +1,48 @@
 import { useState } from "react";
 import { TIPOS_FUNCIONES } from "../constants/puntos_funcion";
-import { ILF_SECTION } from "./ILF";
-
+import { FunctionPointType } from "./FunctionPointType";
+// import { ILF_SECTION } from "./ILF";
+import "./valuesTables.css";
 export const ValuesTables = () => {
-  const [totalPoints, setTotalPoints] = useState();
+  const [totalPoints, setTotalPoints] = useState(0);
+
+  const handleCalculatePoints = () => {
+    let array = [];
+    for (let i = 0; i < localStorage.length; i++) {
+      const key = localStorage.key(i);
+      const value = localStorage.getItem(key);
+      if (key !== "theme") {
+        array.push(JSON.parse(value));
+      }
+    }
+    const result = sumNumbersInArray(array);
+    setTotalPoints(result);
+  };
+
+  function sumNumbersInArray(arrayOfArrays) {
+    let totalSum = 0;
+
+    for (const subArray of arrayOfArrays) {
+      for (const obj of subArray) {
+        totalSum += Number(obj.complexity);
+      }
+    }
+
+    return totalSum;
+  }
 
   return (
-    <section className="flex flex-col gap-6">
+    <section className="calculate-points-container flex justify-between gap-6 w-full">
       {TIPOS_FUNCIONES.slice(0, 5).map((item) => {
-        return <FP_ROW fp={item} key={item.id} />;
+        return <FunctionPointType fp={item} key={item.id} />;
       })}
-      <ILF_SECTION />
-      <button className="bg-accent font-semibold">See the results!</button>
-      <p>{totalPoints}</p>
+      <button
+        onClick={handleCalculatePoints}
+        className="bg-primary boton-principal text-black"
+      >
+        Calcular
+      </button>
+      <p>Puntos VPFSA: {totalPoints}</p>
     </section>
   );
 };
-
-const FP_ROW = ({ fp }) => {
-  const { tipo, descripcion, baja, media, alta } = fp;
-
-  const [value, setValue] = useState(0);
-  const [ammount, setAmmount] = useState(0);
-
-  const handleChange = (ev) => {
-    setValue(ev.target.value);
-  };
-
-  return (
-    <article className="flex flex-col gap-2 items-start justify-between bg-secondary rounded-md py-4 px-5 text-baseColor">
-      <h2 className="text-xl font-semibold">{tipo}</h2>
-      <p className="text-left my-1">{descripcion}</p>
-      <p>{ammount}</p>
-      <section className="flex gap-4 items-center">
-        <button
-          className="bg-secondary text-customText font-extrabold"
-          onClick={() => setAmmount(ammount - 1)}
-        >
-          -
-        </button>
-        <button
-          className="bg-secondary text-customText font-extrabold"
-          onClick={() => setAmmount(ammount + 1)}
-        >
-          +
-        </button>
-        <section className="flex justify-center items-center">
-          <select
-            onChange={handleChange}
-            className="w-full bg-secondary text-customText px-4 py-3 rounded-lg"
-            defaultValue={media}
-          >
-            <option value={baja}>Baja</option>
-            <option value={media}>Media</option>
-            <option value={alta}>Alta</option>
-          </select>
-        </section>
-      </section>
-    </article>
-  );
-};
-
-// const FUNCTION_POINT = ({ fp }) => {
-//   const { tipo, descripcion, baja, media, alta } = fp;
-
-//   const [ammount, setAmmount] = useState(0);
-//   const [value, setValue] = useState(0);
-//   const [result, setResult] = useState(0);
-
-//   const calculateResult = () => {
-//     setResult(value * ammount);
-//   };
-
-//   const handleChange = (ev) => {
-//     setValue(ev.target.value);
-//   };
-
-//   return (
-//     <article className="rounded-md">
-//       <h2>{tipo}</h2>
-//       <p>{descripcion}</p>
-//       <p>{ammount}</p>
-//       <section className="flex justify-center">
-//         <select onChange={handleChange} className="w-full">
-//           <option value={baja}>Baja</option>
-//           <option value={media}>Media</option>
-//           <option value={alta}>Alta</option>
-//         </select>
-//       </section>
-//       <button onClick={() => setAmmount(ammount - 1)}>-</button>
-//       <button onClick={() => setAmmount(ammount + 1)}>+</button>
-//       <footer>
-//         <p>The result is: {result}</p>
-//         <button onClick={calculateResult}>Calculate!</button>
-//       </footer>
-//     </article>
-//   );
-// };
