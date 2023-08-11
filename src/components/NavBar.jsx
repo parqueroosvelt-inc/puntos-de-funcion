@@ -44,14 +44,12 @@ export const NavBar = () => {
               </li>
             );
           })}
-          <li className="">
-            <Link
-              className="transition-all hover:opacity-60 px-4 boton-principal text-black rounded-lg bg-primary"
-              to="/vpfsa"
-            >
-              Calcular
-            </Link>
-          </li>
+          <Link
+            className="transition-all hover:opacity-60 px-4 boton-principal text-black rounded-lg bg-primary"
+            to="/vpfsa"
+          >
+            Calcular
+          </Link>
         </div>
       </ul>
     </nav>
