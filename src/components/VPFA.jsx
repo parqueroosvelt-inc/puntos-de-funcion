@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { NIVELES_INFLUENCIA } from "../constants/nivelesDeInfluencia";
+import { Link } from "react-router-dom";
 
 export const VPFA = () => {
   const [result, setResult] = useState(
@@ -36,7 +37,7 @@ export const VPFA = () => {
       localStorage.getItem("influencepoints-value")
     );
 
-    const VPFA = VPFSA * [0.01 * factorDeAjuste + 0.65];
+    const VPFA = Math.round(VPFSA * [0.01 * factorDeAjuste + 0.65]);
     console.log(VPFA);
   };
 
@@ -44,7 +45,7 @@ export const VPFA = () => {
     <div className="flex flex-col justify-between py-12 text-baseColor gap-6">
       <section className="flex flex-col gap-8 text-left">
         <h1 className="text-4xl font-bold">Ajusta el valor de tus puntos</h1>
-        <p>
+        <p className="text-lg">
           Estos son tus puntos sin ajustar:{" "}
           <span className="text-primary font-semibold">
             {localStorage.getItem("vpfsa-value")}
@@ -54,16 +55,24 @@ export const VPFA = () => {
       {NIVELES_INFLUENCIA.map((item) => {
         return <NivelDeInfluencia key={item.id} influenceLevel={item} />;
       })}
-      <button onClick={handleSubmit} className="boton-principal bg-primary">
-        Submit
-      </button>
-      <button
-        onClick={handleCalculateVPFA}
-        className="boton-principal bg-primary"
-      >
-        Calculate
-      </button>
-      <span>TDI: {result}</span>
+      <p className="text-left">
+        Puntos VPFSA:{" "}
+        <span className="text-primary font-semibold">{result}</span>
+      </p>
+      <div className="flex justify-center gap-3 items-center">
+        <button
+          onClick={handleSubmit}
+          className="w-full bg-primary boton-principal text-black"
+        >
+          Calcular
+        </button>
+        <Link
+          to="/estimacion_esfuerzo"
+          className="w-full bg-secondary boton-secundario text-baseColor"
+        >
+          Siguiente
+        </Link>
+      </div>
     </div>
   );
 };
@@ -85,7 +94,7 @@ const NivelDeInfluencia = ({ influenceLevel }) => {
       <article className="text-left flex flex-col gap-6">
         <div className="flex justify-between items-center w-full">
           <div className="flex gap-3">
-            <h2 className="text-primary font-semibold">{title}</h2>
+            <h2 className="text-primary text-xl font-semibold">{title}</h2>
             {/* <label className="info_item cursor-pointer">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
