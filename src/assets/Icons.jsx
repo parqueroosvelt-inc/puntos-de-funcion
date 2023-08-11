@@ -101,3 +101,65 @@ export const PageIcon = () => {
     </svg>
   );
 };
+
+export const JavascriptIcon = () => {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width={44}
+      height={44}
+      fill="none"
+      stroke="#2c3e50"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth={1.5}
+      className="icon icon-tabler icon-tabler-brand-javascript"
+      viewBox="0 0 24 24"
+    >
+      <path stroke="none" d="M0 0h24v24H0z" />
+      <path d="m20 4-2 14.5-6 2-6-2L4 4z" />
+      <path d="M7.5 8h3v8l-2-1M16.5 8H14a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h1.423a.5.5 0 0 1 .495.57L15.5 15.5l-2 .5" />
+    </svg>
+  );
+};
+export const PHPIcon = () => {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width={44}
+      height={44}
+      fill="none"
+      stroke="#2c3e50"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth={1.5}
+      className="icon icon-tabler icon-tabler-brand-php"
+      viewBox="0 0 24 24"
+    >
+      <path stroke="none" d="M0 0h24v24H0z" />
+      <path d="M2 12a10 9 0 1 0 20 0 10 9 0 1 0-20 0" />
+      <path d="m5.5 15 .395-1.974L6.5 10h1.32a1 1 0 0 1 .986 1.164l-.167 1a1 1 0 0 1-.986.836H6M15.5 15l.395-1.974L16.5 10h1.32a1 1 0 0 1 .986 1.164l-.167 1a1 1 0 0 1-.986.836H16M12 7.5 11 13M11.6 10H14l-.5 3" />
+    </svg>
+  );
+};
+export const JavaIcon = () => {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width={44}
+      height={44}
+      fill="none"
+      stroke="#2c3e50"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth={1.5}
+      className="icon icon-tabler icon-tabler-coffee"
+      viewBox="0 0 24 24"
+    >
+      <path stroke="none" d="M0 0h24v24H0z" />
+      <path d="M3 14c.83.642 2.077 1.017 3.5 1 1.423.017 2.67-.358 3.5-1 .83-.642 2.077-1.017 3.5-1 1.423-.017 2.67.358 3.5 1M8 3a2.4 2.4 0 0 0-1 2 2.4 2.4 0 0 0 1 2M12 3a2.4 2.4 0 0 0-1 2 2.4 2.4 0 0 0 1 2" />
+      <path d="M3 10h14v5a6 6 0 0 1-6 6H9a6 6 0 0 1-6-6v-5z" />
+      <path d="M16.746 16.726a3 3 0 1 0 .252-5.555" />
+    </svg>
+  );
+};
