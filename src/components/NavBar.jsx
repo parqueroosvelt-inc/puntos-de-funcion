@@ -4,6 +4,7 @@ import { Around } from "@theme-toggles/react";
 import "./navBar.css";
 import { useTheme } from "../hooks/useChangeTheme";
 import { THEMES } from "../constants/theme-modes";
+import { Link } from "react-router-dom";
 
 export const NavBar = () => {
   // const [theme, setTheme] = useChangeTheme()
@@ -12,7 +13,10 @@ export const NavBar = () => {
   return (
     <nav className="text-baseColor py-6">
       <ul className="flex items-center justify-between">
-        <a className="transition-all hover:scale-110 hover:opacity-60" href="/">
+        <Link
+          className="transition-all hover:scale-110 hover:opacity-60"
+          to="/"
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width={44}
@@ -28,7 +32,7 @@ export const NavBar = () => {
             <path stroke="none" d="M0 0h24v24H0z" />
             <path d="M15 12h.01M12 12h.01M9 12h.01M6 19a2 2 0 0 1-2-2v-4l-1-1 1-1V7a2 2 0 0 1 2-2M18 19a2 2 0 0 0 2-2v-4l1-1-1-1V7a2 2 0 0 0-2-2" />
           </svg>
-        </a>
+        </Link>
         <li className="flex items-center justify-center">
           <Around toggle={setTheme} toggled={actualTheme} duration={450} />
         </li>
@@ -40,8 +44,13 @@ export const NavBar = () => {
               </li>
             );
           })}
-          <li className="transition-all hover:opacity-60 px-4 boton-principal text-black rounded-lg bg-primary">
-            <a href="/start">Calcular</a>
+          <li className="">
+            <Link
+              className="transition-all hover:opacity-60 px-4 boton-principal text-black rounded-lg bg-primary"
+              to="/vpfsa"
+            >
+              Calcular
+            </Link>
           </li>
         </div>
       </ul>
