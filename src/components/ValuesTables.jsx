@@ -3,19 +3,24 @@ import { TIPOS_FUNCIONES } from "../constants/puntos_funcion";
 import { FunctionPointType } from "./FunctionPointType";
 // import { ILF_SECTION } from "./ILF";
 import "./valuesTables.css";
+import { Link } from "react-router-dom";
 export const ValuesTables = () => {
-  const [totalPoints, setTotalPoints] = useState(0);
+  const [totalPoints, setTotalPoints] = useState(
+    localStorage.getItem("vpfsa-value") || 0
+  );
 
   const handleCalculatePoints = () => {
     let array = [];
     for (let i = 0; i < localStorage.length; i++) {
       const key = localStorage.key(i);
       const value = localStorage.getItem(key);
-      if (key !== "theme") {
+      const legibleKey = key.split("_")[0];
+      if (legibleKey === "All") {
         array.push(JSON.parse(value));
       }
     }
     const result = sumNumbersInArray(array);
+    localStorage.setItem("vpfsa-value", result);
     setTotalPoints(result);
   };
 
@@ -36,13 +41,24 @@ export const ValuesTables = () => {
       {TIPOS_FUNCIONES.slice(0, 5).map((item) => {
         return <FunctionPointType fp={item} key={item.id} />;
       })}
-      <button
-        onClick={handleCalculatePoints}
-        className="bg-primary boton-principal text-black"
-      >
-        Calcular
-      </button>
-      <p>Puntos VPFSA: {totalPoints}</p>
+      <p className="text-left">
+        Puntos VPFSA:{" "}
+        <span className="text-primary font-semibold">{totalPoints}</span>
+      </p>
+      <div className="flex justify-center gap-3 items-center">
+        <button
+          onClick={handleCalculatePoints}
+          className="w-full bg-primary boton-principal text-black"
+        >
+          Calcular
+        </button>
+        <Link
+          to="/vpfa"
+          className="w-full bg-secondary boton-secundario text-baseColor"
+        >
+          Siguiente
+        </Link>
+      </div>
     </section>
   );
 };
