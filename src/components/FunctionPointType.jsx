@@ -39,7 +39,7 @@ export const FunctionPointType = ({ fp }) => {
     <article className="bg-secondary-400 py-4 rounded-lg">
       <section className="flex flex-col w-full gap-6 justify-between">
         <div className="flex gap-4 text-left items-center">
-          <h1>{key}</h1>
+          <h2>{key}</h2>
           <label className="info_item cursor-pointer">
             <svg
               xmlns="http://www.w3.org/2000/svg"
