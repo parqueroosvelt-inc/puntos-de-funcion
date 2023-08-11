@@ -10,7 +10,7 @@ export const Home = () => {
       <div className="main_container flex justify-between py-12 text-baseColor">
         <section className="main_text flex flex-col gap-8 text-left">
           <h1 className="text-4xl font-bold">
-            Calcula Tus <span className="text-primary">Puntos de Funcion</span>{" "}
+            Calcula Tus <span className="text-primary">Puntos de Función</span>{" "}
             Online
           </h1>
           <div className="text-lg">
