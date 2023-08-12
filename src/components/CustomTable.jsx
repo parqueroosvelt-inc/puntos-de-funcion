@@ -1,6 +1,23 @@
 import { TrashIcon } from "../assets/Icons";
 
-export const CustomTable = ({ values, editable }) => {
+export const CustomTable = ({
+  values,
+  editable,
+  keyName,
+  setState,
+  handleCalculatePoints,
+}) => {
+  const handleDelete = (id) => {
+    const newList = values.filter((li) => li.id !== id);
+    saveResult(newList);
+    handleCalculatePoints();
+  };
+
+  const saveResult = (nuevaListaDePF) => {
+    localStorage.setItem(keyName, JSON.stringify(nuevaListaDePF));
+    setState(nuevaListaDePF);
+  };
+
   return (
     <div className="-m-1.5 overflow-x-auto">
       <div className="p-1.5 min-w-full inline-block align-middle">
@@ -37,6 +54,7 @@ export const CustomTable = ({ values, editable }) => {
                     editable={editable}
                     key={JSON.stringify(item)}
                     item={item}
+                    handleDelete={handleDelete}
                   />
                 );
               })}
@@ -48,7 +66,7 @@ export const CustomTable = ({ values, editable }) => {
   );
 };
 
-const TableRow = ({ item, editable }) => {
+const TableRow = ({ item, editable, handleDelete }) => {
   let [name, value] = depureEntries(item);
 
   return (
@@ -59,7 +77,10 @@ const TableRow = ({ item, editable }) => {
       <td className="px-6 py-4 whitespace-nowrap text-sm ">{value}</td>
       {editable && (
         <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-          <button className="bg-secondary boton-secundario border-2 hover:border-accent transition-all">
+          <button
+            onClick={() => handleDelete(item.id)}
+            className="bg-secondary boton-secundario border-2 hover:border-accent transition-all"
+          >
             <TrashIcon />
           </button>
         </td>
