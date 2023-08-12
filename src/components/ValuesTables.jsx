@@ -46,15 +46,16 @@ export const ValuesTables = () => {
         <span className="text-primary font-semibold">{totalPoints}</span>
       </p>
       <div className="flex justify-center gap-3 items-center">
-        <button
-          onClick={handleCalculatePoints}
-          className="w-full bg-primary boton-principal text-black"
-        >
-          Calcular
-        </button>
         <Link
-          to="/vpfa"
+          to="/"
           className="w-full bg-secondary boton-secundario text-baseColor"
+        >
+          Atras
+        </Link>
+        <Link
+          onClick={handleCalculatePoints}
+          to="/vpfa"
+          className="w-full bg-primary boton-principal text-black"
         >
           Siguiente
         </Link>
