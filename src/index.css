@@ -67,7 +67,7 @@ button {
     --color-background-fill: #040301;
     --color-text-base: #ffffff;
     --color-accent: #7cb5ee;
-    --color-contrast: #ffffff;
+    --color-contrast: #040301;
   }
   .light-mode {
     --color-primary: #ed9e50;
@@ -76,7 +76,7 @@ button {
     --color-background-fill: #ffffff;
     --color-text-base: #040301;
     --color-accent: #1869b9;
-    --color-contrast: #040301;
+    --color-contrast: #ffffff;
   }
 }
 
