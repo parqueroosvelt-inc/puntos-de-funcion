@@ -58,7 +58,13 @@ export const VPFA = () => {
         </p>
       </section>
       {NIVELES_INFLUENCIA.map((item) => {
-        return <NivelDeInfluencia key={item.id} influenceLevel={item} />;
+        return (
+          <NivelDeInfluencia
+            evaluatePoints={evaluatePoints}
+            key={item.id}
+            influenceLevel={item}
+          />
+        );
       })}
       <p className="text-left">
         Puntos VPFSA:{" "}
@@ -66,7 +72,6 @@ export const VPFA = () => {
       </p>
       <div className="flex justify-center gap-3 items-center">
         <Link
-          onClick={evaluatePoints}
           to="/vpfsa"
           className="w-full bg-secondary boton-secundario text-baseColor"
         >
@@ -84,7 +89,7 @@ export const VPFA = () => {
   );
 };
 
-const NivelDeInfluencia = ({ influenceLevel }) => {
+const NivelDeInfluencia = ({ influenceLevel, evaluatePoints }) => {
   const { description, id, title, grados } = influenceLevel;
   const key = "IP/" + id;
   const initialValue = Number(localStorage.getItem(key)) || 0;
@@ -94,6 +99,7 @@ const NivelDeInfluencia = ({ influenceLevel }) => {
     const valueToChange = ev.target.value;
     setValue(valueToChange);
     localStorage.setItem(key, valueToChange);
+    evaluatePoints();
   };
 
   return (

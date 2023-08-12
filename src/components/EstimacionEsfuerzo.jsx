@@ -80,7 +80,6 @@ export const EstimacionEsfuerzo = () => {
       </section>
       <section className="flex w-full gap-4">
         <Link
-          onClick={calculateFinalPoints}
           to={"/vpfa"}
           className="w-full items-center boton-secundario bg-secondary text-baseColor"
         >

@@ -10,6 +10,7 @@ export const ValuesTables = () => {
   );
 
   const handleCalculatePoints = () => {
+    console.log("BUENAAAA");
     let array = [];
     for (let i = 0; i < localStorage.length; i++) {
       const key = localStorage.key(i);
@@ -39,7 +40,13 @@ export const ValuesTables = () => {
   return (
     <section className="calculate-points-container flex justify-between gap-6 w-full">
       {TIPOS_FUNCIONES.slice(0, 5).map((item) => {
-        return <FunctionPointType fp={item} key={item.id} />;
+        return (
+          <FunctionPointType
+            handleCalculatePoints={handleCalculatePoints}
+            fp={item}
+            key={item.id}
+          />
+        );
       })}
       <p className="text-left">
         Puntos VPFSA:{" "}
@@ -52,7 +59,6 @@ export const ValuesTables = () => {
         >
           Atras
         </Link>
-        <button onClick={handleCalculatePoints}>prueba</button>
         <Link
           onClick={handleCalculatePoints}
           to="/vpfa"

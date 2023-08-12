@@ -1,9 +1,8 @@
 import { useRef, useState } from "react";
 import "./functionType.css";
-import { TrashIcon } from "../assets/Icons";
 import { CustomTable } from "./CustomTable";
 
-export const FunctionPointType = ({ fp }) => {
+export const FunctionPointType = ({ fp, handleCalculatePoints }) => {
   const { tipo, descripcion, baja, media, alta, key } = fp;
   const keyName = "All_" + key;
   const [values, setValues] = useState(
@@ -25,11 +24,8 @@ export const FunctionPointType = ({ fp }) => {
 
     saveResult(nuevaListaDePF);
     inputRef.current.value = "";
-  };
 
-  const handleDelete = (id) => {
-    const newList = values.filter((li) => li.id !== id);
-    saveResult(newList);
+    handleCalculatePoints();
   };
 
   const saveResult = (nuevaListaDePF) => {
@@ -96,7 +92,13 @@ export const FunctionPointType = ({ fp }) => {
       </section>
       {values.length !== 0 && (
         <section className="flex flex-col py-4">
-          <CustomTable editable={true} values={values} />
+          <CustomTable
+            handleCalculatePoints={handleCalculatePoints}
+            editable={true}
+            keyName={keyName}
+            setState={setValues}
+            values={values}
+          />
         </section>
       )}
       <hr className="mt-4 opacity-70" />
@@ -122,6 +124,6 @@ function addFunctionPoint({ name, todosLosPF, complejidad }) {
 }
 
 function showError() {
-  alert("Rellene todos los campos para continuar");
+  alert("Inserte un nombre");
   return [];
 }
