@@ -29,7 +29,7 @@ export const ValuesTables = () => {
 
     for (const subArray of arrayOfArrays) {
       for (const obj of subArray) {
-        totalSum += Number(obj.complexity);
+        totalSum += Number(obj.value);
       }
     }
 
@@ -52,6 +52,7 @@ export const ValuesTables = () => {
         >
           Atras
         </Link>
+        <button onClick={handleCalculatePoints}>prueba</button>
         <Link
           onClick={handleCalculatePoints}
           to="/vpfa"
