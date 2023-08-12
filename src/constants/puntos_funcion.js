@@ -1,6 +1,7 @@
 export const TIPOS_FUNCIONES = [
     {
         id: 0,
+        key: "EL",
         tipo: "Entrada Externa",
         descripcion: "Pantallas donde el usuario ingresa datos",
         baja: 3,
@@ -9,6 +10,7 @@ export const TIPOS_FUNCIONES = [
     },
     {
         id: 1,
+        key: "EO",
         tipo: "Salida externa",
         descripcion: "Informes, gráficos, listados de datos",
         baja: 4,
@@ -17,6 +19,7 @@ export const TIPOS_FUNCIONES = [
     },
     {
         id: 2,
+        key: "EQ",
         tipo: "Consulta externa",
         descripcion: "Recuperar y mostrar datos al usuario (Buscar)",
         baja: 3,
@@ -25,11 +28,21 @@ export const TIPOS_FUNCIONES = [
     },
     {
         id: 3,
+        key: "EIF",
         tipo: "Fichero de interfaz externa",
-        descripcion: "Datos referenciados y relacionados a otros sistemas / Datos mantenidos por otros sistemas, pero usados por el sistema actual.",
+        descripcion: "Datos referenciados y relacionados a otros sistemas / Datos mantenidos por otros sistemas",
         baja: 5,
         media: 7,
         alta: 10,
+    },
+    {
+        id: 4,
+        key: "ILF",
+        tipo: "Fichero lógico interno",
+        descripcion: "Archivos del punto de vista lógico / Tablas en la base de datos.",
+        baja: 7,
+        media: 10,
+        alta: 15,
     },
 ]
 export const ILF_FUNCTION = {

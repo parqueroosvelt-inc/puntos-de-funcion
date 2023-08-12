@@ -15,6 +15,12 @@ export default {
         'background-fill' : 'var(--color-background-fill)',
         'baseColor' : 'var(--color-text-base)',
         'accent' : 'var(--color-accent)',
+        'contrast' : 'var(--color-contrast)',
+      },
+      screens: {
+        'movil-m': '320px',
+        'movil-s': '375px',
+        'movil-l': '425px',
       },
     },
   },

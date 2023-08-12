@@ -1,0 +1,9 @@
+.info_item:hover ~ .info_pop-up {
+    /* visibility: visible; */
+    opacity: 100%;
+}
+
+.info_pop-up {
+    opacity: 0;
+    /* visibility: hidden; */
+}

@@ -49,6 +49,10 @@ button {
 }
 
 .boton-secundario {
+  border-radius: 8px;
+  cursor: pointer;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
   transition: transform ease 0.2s, box-shadow ease 0.2s;
 }
 
@@ -62,15 +66,22 @@ button {
     --color-secondary: #141412;
     --color-background-fill: #040301;
     --color-text-base: #ffffff;
-    --color-accent: #7cb5ee,
+    --color-accent: #7cb5ee;
+    --color-contrast: #040301;
   }
   .light-mode {
     --color-primary: #ed9e50;
-    --color-secondary: #e1e1dd;
+    /* --color-secondary: #e1e1dd; */
+    --color-secondary: #f1f1f1;
     --color-background-fill: #ffffff;
     --color-text-base: #040301;
-    --color-accent: #1869b9,
+    --color-accent: #1869b9;
+    --color-contrast: #ffffff;
   }
+}
+
+::selection {
+  background: var(--color-accent);
 }
 
 /* @media (prefers-color-scheme: light) {
