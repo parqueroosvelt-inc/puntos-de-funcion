@@ -7,6 +7,10 @@ export const VPFA = () => {
     localStorage.getItem("influencepoints-value") || 0
   );
 
+  const evaluatePoints = () => {
+    handleSubmit();
+  };
+
   const handleSubmit = () => {
     let array = [];
     for (let i = 0; i < localStorage.length; i++) {
@@ -20,6 +24,7 @@ export const VPFA = () => {
     const resultado = sumNumbersInArray(array);
     localStorage.setItem("influencepoints-value", resultado);
     setResult(resultado);
+    handleCalculateVPFA();
   };
 
   function sumNumbersInArray(array) {
@@ -38,7 +43,7 @@ export const VPFA = () => {
     );
 
     const VPFA = Math.round(VPFSA * [0.01 * factorDeAjuste + 0.65]);
-    console.log(VPFA);
+    localStorage.setItem("adjusted-influence-value", VPFA);
   };
 
   return (
@@ -60,15 +65,17 @@ export const VPFA = () => {
         <span className="text-primary font-semibold">{result}</span>
       </p>
       <div className="flex justify-center gap-3 items-center">
-        <button
-          onClick={handleSubmit}
-          className="w-full bg-primary boton-principal text-black"
-        >
-          Calcular
-        </button>
         <Link
-          to="/estimacion_esfuerzo"
+          onClick={evaluatePoints}
+          to="/vpfsa"
           className="w-full bg-secondary boton-secundario text-baseColor"
+        >
+          Atras
+        </Link>
+        <Link
+          onClick={evaluatePoints}
+          to="/estimacion_esfuerzo"
+          className="w-full bg-primary boton-principal text-black"
         >
           Siguiente
         </Link>
