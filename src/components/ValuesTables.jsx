@@ -1,9 +1,9 @@
 import { useState } from "react";
-import { TIPOS_FUNCIONES } from "../constants/puntos_funcion";
 import { FunctionPointType } from "./FunctionPointType";
-// import { ILF_SECTION } from "./ILF";
-import "./valuesTables.css";
 import { Link } from "react-router-dom";
+import { TIPOS_FUNCIONES } from "../constants/puntos_funcion";
+import "./valuesTables.css";
+
 export const ValuesTables = () => {
   const [totalPoints, setTotalPoints] = useState(
     localStorage.getItem("vpfsa-value") || 0
