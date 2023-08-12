@@ -75,7 +75,7 @@ function depureEntries(item) {
   }
   if (!Array.isArray(item)) {
     const name = item.name;
-    const value = item.complexity;
+    const value = item.value;
     return [name, value];
   }
 }
