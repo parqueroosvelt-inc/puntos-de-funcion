@@ -1,5 +1,7 @@
 import { useRef, useState } from "react";
 import "./functionType.css";
+import { TrashIcon } from "../assets/Icons";
+import { CustomTable } from "./CustomTable";
 
 export const FunctionPointType = ({ fp }) => {
   const { tipo, descripcion, baja, media, alta, key } = fp;
@@ -94,76 +96,7 @@ export const FunctionPointType = ({ fp }) => {
       </section>
       {values.length !== 0 && (
         <section className="flex flex-col py-4">
-          <div className="-m-1.5 overflow-x-auto">
-            <div className="p-1.5 min-w-full inline-block align-middle">
-              <div className="border rounded-lg overflow-hidden border-gray-700">
-                <table className="min-w-full divide-y divide-gray-700">
-                  <thead>
-                    <tr className="text-baseColor">
-                      <th
-                        scope="col"
-                        className="px-6 py-3 text-left text-xs font-medium text-accent uppercase"
-                      >
-                        NOMBRE
-                      </th>
-                      <th
-                        scope="col"
-                        className="px-6 py-3 text-left text-xs font-medium text-accent uppercase"
-                      >
-                        Valor
-                      </th>
-                      <th
-                        scope="col"
-                        className="px-6 py-3 text-right text-xs font-medium text-accent uppercase"
-                      >
-                        Acción
-                      </th>
-                    </tr>
-                  </thead>
-                  <tbody className="divide-y divide-gray-200 dark:divide-gray-700">
-                    {values.map((item) => {
-                      const { name, complexity } = item;
-                      return (
-                        <tr
-                          key={"row_" + item.id}
-                          className="text-left text-baseColor"
-                        >
-                          <td className="px-6 py-4 whitespace-nowrap text-sm font-medium">
-                            {name}
-                          </td>
-                          <td className="px-6 py-4 whitespace-nowrap text-sm ">
-                            {complexity}
-                          </td>
-                          <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                            <button
-                              className="bg-secondary boton-secundario border-2 hover:border-accent transition-all"
-                              onClick={() => handleDelete(item.id)}
-                            >
-                              <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                width={24}
-                                height={24}
-                                fill="none"
-                                stroke="currentColor"
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                strokeWidth={1.5}
-                                className="icon icon-tabler icon-tabler-trash text-baseColor"
-                                viewBox="0 0 24 24"
-                              >
-                                <path stroke="none" d="M0 0h24v24H0z" />
-                                <path d="M4 7h16M10 11v6M14 11v6M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2l1-12M9 7V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v3" />
-                              </svg>
-                            </button>
-                          </td>
-                        </tr>
-                      );
-                    })}
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          </div>
+          <CustomTable editable={true} values={values} />
         </section>
       )}
       <hr className="mt-4 opacity-70" />
@@ -181,7 +114,7 @@ function addFunctionPoint({ name, todosLosPF, complejidad }) {
   }
   const nuevoPF = {
     name,
-    complexity: complejidad,
+    value: complejidad,
     id: Math.random() + "_" + name + "_" + complejidad,
   };
   const nuevaListaDePF = [...todosLosPF, nuevoPF];
