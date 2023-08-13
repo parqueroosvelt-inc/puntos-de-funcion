@@ -28,7 +28,7 @@ export const EstimacionEsfuerzo = () => {
   };
 
   return (
-    <div className="flex flex-col py-12 text-baseColor gap-6">
+    <div className="flex flex-col pt-12 text-baseColor gap-6">
       <section className="flex flex-col gap-4 text-left">
         <h1 className="text-4xl font-bold">Estimacion de Esfuerzo</h1>
         <p className="">
@@ -78,7 +78,7 @@ export const EstimacionEsfuerzo = () => {
           />
         </article>
       </section>
-      <section className="flex w-full gap-4">
+      <section className="flex lastButtons_container w-full gap-4">
         <Link
           to={"/vpfa"}
           className="w-full items-center boton-secundario bg-secondary text-baseColor"

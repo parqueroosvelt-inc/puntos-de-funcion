@@ -65,7 +65,7 @@ export const FunctionPointType = ({ fp, handleCalculatePoints }) => {
             </div>
           </div>
         </div>
-        <div className="flex gap-4">
+        <div className="functionPoint_container relative flex gap-4">
           <input
             ref={inputRef}
             type="text"

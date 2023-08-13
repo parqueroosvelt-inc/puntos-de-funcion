@@ -10,7 +10,6 @@ export const ValuesTables = () => {
   );
 
   const handleCalculatePoints = () => {
-    console.log("BUENAAAA");
     let array = [];
     for (let i = 0; i < localStorage.length; i++) {
       const key = localStorage.key(i);

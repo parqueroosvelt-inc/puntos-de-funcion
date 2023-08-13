@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { MouseIcon, PageIcon } from "../assets/Icons";
 import { homeReasons } from "../constants/HomeReasons";
 import { Footer } from "./Footer";
@@ -20,10 +21,13 @@ export const Home = () => {
               de función en un instante.
             </p>
           </div>
-          <section className="main_buttons_container flex gap-4">
-            <button className="bg-primary text-black py-3 boton-principal">
+          <section className="main_buttons_container flex text-center gap-4">
+            <Link
+              to={"/vpfsa"}
+              className="bg-primary text-black py-3 boton-principal"
+            >
               Comenzar
-            </button>
+            </Link>
             <button className="boton-secundario bg-secondary py-3 px-6">
               ¿Cómo funciona?
             </button>
@@ -52,11 +56,10 @@ export const Home = () => {
           })}
         </div>
       </section>
-      <section className="text-baseColor mt-16 flex flex-col gap-4">
+      {/* <section className="text-baseColor mt-16 flex flex-col gap-4">
         <h2 className="text-xl font-semibold">Preguntas Frecuentes</h2>
         <p>Aquí las respuestas a algunas de las preguntas que puedas tener.</p>
-      </section>
-      <Footer />
+      </section> */}
       {/* <ValuesTables /> */}
     </>
   );

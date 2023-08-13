@@ -7,3 +7,13 @@
     opacity: 0;
     /* visibility: hidden; */
 }
+
+
+@media (max-width: 450px) {
+    .functionPoint_container {
+        flex-direction: column;
+    }
+    .functionPoint_container input{
+        max-width: 100%;
+    }
+}

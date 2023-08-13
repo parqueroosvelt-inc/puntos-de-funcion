@@ -18,7 +18,7 @@ export const FinalResults = () => {
   };
 
   return (
-    <div className="flex flex-col py-12 text-baseColor gap-6">
+    <div className="flex flex-col pt-12 text-baseColor gap-6">
       <section className="flex flex-col gap-4 text-left">
         <h1 className="text-4xl font-bold">
           Resultados finales: <span className="text-accent">{horasHombre}</span>

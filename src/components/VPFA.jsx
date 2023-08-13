@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { NIVELES_INFLUENCIA } from "../constants/nivelesDeInfluencia";
 import { Link } from "react-router-dom";
+import { Footer } from "./Footer";
 
 export const VPFA = () => {
   const [result, setResult] = useState(
@@ -47,45 +48,47 @@ export const VPFA = () => {
   };
 
   return (
-    <div className="flex flex-col justify-between py-12 text-baseColor gap-6">
-      <section className="flex flex-col gap-8 text-left">
-        <h1 className="text-4xl font-bold">Ajusta el valor de tus puntos</h1>
-        <p className="text-lg">
-          Estos son tus puntos sin ajustar:{" "}
-          <span className="text-primary font-semibold">
-            {localStorage.getItem("vpfsa-value")}
-          </span>
+    <>
+      <div className="flex flex-col justify-between pt-12 text-baseColor gap-6">
+        <section className="flex flex-col gap-8 text-left">
+          <h1 className="text-4xl font-bold">Ajusta el valor de tus puntos</h1>
+          <p className="text-lg">
+            Estos son tus puntos sin ajustar:{" "}
+            <span className="text-primary font-semibold">
+              {localStorage.getItem("vpfsa-value")}
+            </span>
+          </p>
+        </section>
+        {NIVELES_INFLUENCIA.map((item) => {
+          return (
+            <NivelDeInfluencia
+              evaluatePoints={evaluatePoints}
+              key={item.id}
+              influenceLevel={item}
+            />
+          );
+        })}
+        <p className="text-left">
+          Puntos VPFSA:{" "}
+          <span className="text-primary font-semibold">{result}</span>
         </p>
-      </section>
-      {NIVELES_INFLUENCIA.map((item) => {
-        return (
-          <NivelDeInfluencia
-            evaluatePoints={evaluatePoints}
-            key={item.id}
-            influenceLevel={item}
-          />
-        );
-      })}
-      <p className="text-left">
-        Puntos VPFSA:{" "}
-        <span className="text-primary font-semibold">{result}</span>
-      </p>
-      <div className="flex justify-center gap-3 items-center">
-        <Link
-          to="/vpfsa"
-          className="w-full bg-secondary boton-secundario text-baseColor"
-        >
-          Atras
-        </Link>
-        <Link
-          onClick={evaluatePoints}
-          to="/estimacion_esfuerzo"
-          className="w-full bg-primary boton-principal text-black"
-        >
-          Siguiente
-        </Link>
+        <div className="flex justify-center gap-3 items-center">
+          <Link
+            to="/vpfsa"
+            className="w-full bg-secondary boton-secundario text-baseColor"
+          >
+            Atras
+          </Link>
+          <Link
+            onClick={evaluatePoints}
+            to="/estimacion_esfuerzo"
+            className="w-full bg-primary boton-principal text-black"
+          >
+            Siguiente
+          </Link>
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 
