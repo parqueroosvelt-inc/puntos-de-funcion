@@ -18,7 +18,7 @@ export const InsertILF = ({ setShowModal, setTablas }) => {
     const nuevoILF = {
       databaseTableName,
       complexity: complejidad,
-      id: Math.random() + "_" + databaseTableName + "_" + complexity,
+      id: Math.random() + "_" + databaseTableName + "_" + complejidad,
     };
     const listaRenovadaDeILF = [...todosLosILF, nuevoILF];
     localStorage.setItem("All_Ilf", JSON.stringify(listaRenovadaDeILF));

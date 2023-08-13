@@ -1,7 +1,7 @@
 export const NAVBAR_SECTIONS = [
-    {
-        id: 0,
-        title: 'Documentacion',
-        route: '/docs'
-    }
+    // {
+    //     id: 0,
+    //     title: 'Documentacion',
+    //     route: '/docs'
+    // }
 ]
