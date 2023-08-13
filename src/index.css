@@ -16,7 +16,6 @@
 .ilf_table tr:nth-child(even){
   background-color: #27290a;
 }
-
 * {
   font-family: 'Inter', sans-serif;
 }
@@ -59,6 +58,17 @@ button {
 .boton-secundario:hover {
   transform: translate(0, -3px);
 }
+
+body {
+    padding: 0 15%;
+}
+
+@media (max-width: 1400px) {
+   body {
+      padding: 0 5%;
+  }
+}
+
 
 @layer base {
   .dark-mode {
