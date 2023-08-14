@@ -278,6 +278,12 @@ export const NIVELES_INFLUENCIA = [
     {
         id: 'facilidad-operacion',
         title: 'Facilidad de operación',
+        options: [
+            'Fueron desarrollados procedimientos de inicialización y respaldo, siendo necesaria la intervención del operador',
+            'Se establecieron procesos de inicialización, respaldo y recuperación sin ninguna intervención del operador (contar como 2 items), siendo necesaria la intervención del operador',
+            'La aplicación minimiza la necesidad de montaje de cintas magnéticas',
+            'La aplicación minimiza la necesidad de manoseo de papel',
+        ],
         description: 'La facilidad de operación es una característica del sistema. Se proporcionaron y probaron procedimientos de inicialización, respaldo y recuperación durante la fase de prueba del sistema. La aplicación se esfuerza por reducir la necesidad de actividades manuales, como el manejo de cintas magnéticas, papel y la intervención del operador.',
         grados: [
             {
@@ -285,8 +291,20 @@ export const NIVELES_INFLUENCIA = [
                 description: 'No se requieren consideraciones especiales de operación, aparte del proceso normal de respaldo establecido por el usuario.'
             },
             {
+                grado: 1,
+                description: 'Apenas uno de los items descritos.'
+            },
+            {
+                grado: 2,
+                description: 'Dos de los items descritos.'
+            },
+            {
                 grado: 3,
-                description: 'Verificar cuántas de las siguientes afirmaciones se aplican en la aplicación. Cada ítem cuenta como un punto, excepto cuando se especifique lo contrario'
+                description: 'Tres de los items descritos.'
+            },
+            {
+                grado: 4,
+                description: 'Cuatro de los items descritos.'
             },
             {
                 grado: 5,
